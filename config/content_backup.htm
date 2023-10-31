@@ -1,8 +1,22 @@
 <h1>About</h1>
 <p><a href="https://github.com/mdecycu/cmsite"> https://github.com/mdecycu/cmsite</a></p>
 <p></p><h1>w8</h1>
+<p>chmod u+x acp</p>
+<p>mkdir public_html</p>
+<p>cd public_html</p>
+<p>git clone --recurse-submodules <a href="https://github.com/zhe41223118/cp2023.git">https://github.com/zhe41223118/cp2023.git</a></p>
+<p>vi acp</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#! /bin/bash
+git add .
+git commit -m "$1"
+git push
+cd ./../public_html/cp2023
+git pull
+</pre>
+<p>帳號根目錄 (user directory) 必須設定 .gitconfig</p>
+<p><a>https://s1511.cycu.org:8022</a> </p>
 <p><a href="https://s1511.cycu.org/~cp41223118/cp2023">https://s1511.cycu.org/~cp41223118/cp2023</a> </p>
-<p><a>https://s1511.cycu.org:8022</a> </p><h1>work</h1>
+<p> </p><h1>work</h1>
 <p><span>需在replit.nix進行  <span style="color: #ff0000;">備註:Files最底下 藍色雪花圖形 </span></span></p>
 <div class="line number1 index0 alt2"><code class="js plain">{ pkgs }: {</code></div>
 <div class="line number2 index1 alt1"><code class="js spaces">    </code><code class="js plain">deps = [</code></div>
