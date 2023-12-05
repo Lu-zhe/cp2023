@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='work.html'>work</a><li><a href='program.html'>program</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='work.html'>work</a><li><a href='program.html'>program</a><li><a href='w13.html'>w13</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,7 +142,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">work << <a href='work.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>program</h1>
+    <div id="tipue_search_content">work << <a href='work.html'>Previous</a> <a href='w13.html'>Next</a> >> w13<br /><h1>program</h1>
 <p><em><strong><span style="color: #ff0000;">曲線圖</span></strong></em></p>
 <p><span style="color: #000000;"><strong>#include &lt;stdio.h&gt;<br/> <br/>int main() {<br/> // Open a file to write displacement and velocity data<br/> FILE *outputFile = fopen("motion_data.txt", "w");<br/> if (!outputFile) {<br/> fprintf(stderr, "Failed to create data file.\n");<br/> return 1;<br/> }<br/> <br/> // Simulate motion for 10 seconds and calculate displacement and velocity, while writing data to the file<br/> double x = 0.2; // Initial displacement<br/> double v = 0.0; // Initial velocity<br/> double dt = 0.01; // Time step<br/> double t = 0.0; // Time<br/> <br/> while (t &lt;= 10.0) {<br/> double acceleration = (-10.0 * x - 0.5 * v) / 1.0; // Modified system parameters here<br/> v += acceleration * dt;<br/> x += v * dt;<br/> <br/> fprintf(outputFile, "%lf %lf %lf\n", t, x, v);<br/> <br/> t += dt;<br/> }<br/> <br/> // Close the data file<br/> fclose(outputFile);<br/> <br/> // Start a Gnuplot process using popen<br/> FILE *gnuplotPipe = popen("gnuplot -persistent", "w");<br/> if (!gnuplotPipe) {<br/> fprintf(stderr, "Failed to start Gnuplot.\n");<br/> return 1;<br/> }<br/> <br/> // Use Gnuplot plotting commands, specify font and output as PNG<br/> fprintf(gnuplotPipe, "set terminal pngcairo enhanced font 'default,10' size 800,400\n");<br/> fprintf(gnuplotPipe, "set output 'motion_plot.png'\n");<br/> fprintf(gnuplotPipe, "set title 'Displacement and Velocity vs. Time'\n");<br/> fprintf(gnuplotPipe, "set xlabel 'Time (s)'\n");<br/> fprintf(gnuplotPipe, "set ylabel 'Displacement (m)'\n");<br/> fprintf(gnuplotPipe, "plot 'motion_data.txt' using 1:2 with lines lw 2 title 'Displacement', \<br/> 'motion_data.txt' using 1:3 with lines lw 2 title 'Velocity'\n");<br/> <br/> // Close the Gnuplot process<br/> fprintf(gnuplotPipe, "exit\n");<br/> pclose(gnuplotPipe);<br/> <br/> return 0;<br/>}</strong></span></p>
 <p><span style="color: #ff0000;"><strong><em>台灣國旗</em></strong></span></p>
@@ -173,7 +173,7 @@ img.add_border {
 <p><strong>void draw_star(gdImagePtr img, int x, int y, int size, int color) {</strong><br/><strong> gdPoint points[10];</strong></p>
 <p><strong>for (int i = 0; i &lt; 10; i++) {</strong><br/><strong> double angle = M_PI / 2 + i * 2 * M_PI / 10+M_PI;</strong><br/><strong> int radius = (i % 2 == 0) ? size : size / 2;</strong><br/><strong> points[i].x = x + radius * cos(angle);</strong><br/><strong> points[i].y = y + radius * sin(angle);</strong><br/><strong> }</strong></p>
 <p><strong>// Fill the star with white color</strong><br/><strong> gdImageFilledPolygon(img, points, 10, color);</strong><br/><strong>}</strong></p>
-<br />work << <a href='work.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+<br />work << <a href='work.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
         
     <!-- footer -->
       <div class="container">
