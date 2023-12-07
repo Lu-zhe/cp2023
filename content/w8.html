@@ -131,11 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-<<<<<<< HEAD
-                     <li><a href='About.html'>About</a><li><a href='work.html'>work</a><li><a href='program.html'>program</a><li><a href='w13.html'>w13</a><li><a href='Brython.html'>Brython</a></li>
-=======
                      <li><a href='About.html'>About</a><li><a href='w11.html'>w11</a><li><a href='w8.html'>w8</a><li><a href='work.html'>work</a><li><a href='program.html'>program</a><li><a href='Brython.html'>Brython</a></li>
->>>>>>> 44d7cd05e7c2d907859a3533d2e55c80f46c908b
                       </ul>
                 </nav>
               </div>
@@ -146,25 +142,29 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w8 << <a href='w8.html'>Previous</a> <a href='program.html'>Next</a> >> program<br /><h1>work</h1>
-<p><span>需在replit.nix進行  <span style="color: #ff0000;">備註:Files最底下 藍色雪花圖形 </span></span></p>
-<div class="line number1 index0 alt2"><code class="js plain">{ pkgs }: {</code></div>
-<div class="line number2 index1 alt1"><code class="js spaces">    </code><code class="js plain">deps = [</code></div>
-<div class="line number3 index2 alt2"><code class="js spaces">        </code><code class="js plain">pkgs.sudo</code></div>
-<div class="line number4 index3 alt1"><code class="js spaces">        </code><code class="js plain">pkgs.clang_12</code></div>
-<div class="line number5 index4 alt2"><code class="js spaces">        </code><code class="js plain">pkgs.ccls</code></div>
-<div class="line number6 index5 alt1"><code class="js spaces">        </code><code class="js plain">pkgs.gdb</code></div>
-<div class="line number7 index6 alt2"><code class="js spaces">        </code><code class="js plain">pkgs.gnumake</code></div>
-<div class="line number8 index7 alt1"><code class="js spaces">        </code><span style="color: #ff0000;"><code class="js plain">pkgs.gnuplot</code></span></div>
-<div class="line number9 index8 alt2"><code class="js spaces">    </code><code class="js plain">];</code></div>
-<div class="line number10 index9 alt1"><code class="js plain">}</code></div>
-<p><img alt="" height="400" src="./../images/gnuplot_ex1.png" width="800"/></p>
-<p>需在replit.nix進行</p>
-<p>{ pkgs }: {<br/> deps = [<br/> pkgs.vimHugeX<br/> <span style="color: #ff0000;">pkgs.gd</span><br/> pkgs.gnuplot<br/> ];<br/>}</p>
-<p>其中<span style="color: #ff0000;">pkgs.gd<span style="color: #000000;">是必要</span></span></p>
-<p><img alt="" height="800" src="./../images/roc_flag_in_gd.png" width="1200"/></p>
-<p><img alt="" height="421" src="./../images/usa_flag.png" width="800"/></p>
-<br />w8 << <a href='w8.html'>Previous</a> <a href='program.html'>Next</a> >> program</div>
+    <div id="tipue_search_content">w11 << <a href='w11.html'>Previous</a> <a href='work.html'>Next</a> >> work<br /><h1>w8</h1>
+<p>chmod u+x acp</p>
+<p>mkdir public_html</p>
+<p>cd public_html</p>
+<p>git clone --recurse-submodules <a href="https://github.com/zhe41223118/cp2023.git">https://github.com/zhe41223118/cp2023.git</a></p>
+<p>vi acp</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#! /bin/bash
+git add .
+git commit -m "$1"
+git push
+cd ./../public_html/cp2023
+git pull
+</pre>
+<p>必須根據<a href="https://www.server-world.info/en/note?os=Ubuntu_20.04&amp;p=nginx&amp;f=4">這裡</a>的說明設定目錄權限.</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ubuntu@www:~$ chmod 711 /home/ubuntu
+ubuntu@www:~$ mkdir ~/public_html
+ubuntu@www:~$ chmod 755 ~/public_html
+ubuntu@www:~$ vi ~/public_html/index.html</pre>
+<p>帳號根目錄 (user directory) 必須設定 .gitconfig</p>
+<p><a>https://s1511.cycu.org:8022</a> </p>
+<p><a href="https://s1511.cycu.org/~cp41223118/cp2023">https://s1511.cycu.org/~cp41223118/cp2023</a> </p>
+<p> </p>
+<br />w11 << <a href='w11.html'>Previous</a> <a href='work.html'>Next</a> >> work</div>
         
     <!-- footer -->
       <div class="container">
