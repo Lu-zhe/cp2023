@@ -197,7 +197,6 @@ return 0;
 }</pre>
 <p><br/><br/></p>
 <p><span style="color: #ff0000;"><strong><em>台灣國旗</em></strong></span></p>
-<p></p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">// 內政部國旗參考資料: https://www.moi.gov.tw/cp.aspx?n=10621
 // 幾何形狀著色與繪圖練習
 #include &lt;stdio.h&gt;
@@ -317,9 +316,7 @@ gdImagePolygon(img, points, 4, color);
 }
 }</pre>
 <p></p>
-<p></p>
 <p><strong><em><span style="color: #ff0000;">美國國旗</span></em></strong></p>
-<p></p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
 #include &lt;math.h&gt;
@@ -401,9 +398,57 @@ points[i].y = y + radius * sin(angle);
 // Fill the star with white color
 gdImageFilledPolygon(img, points, 10, color);
 }</pre>
+<p><strong><em><span style="color: #ff0000;">日本國旗</span></em></strong></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+void draw_japan_flag(gdImagePtr img);
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int white, int red );
+
+int main() {
+    // width 3: height 2
+    int width = 1200;
+    int height = 2 * width / 3;
+
+    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+
+    draw_japan_flag(img);
+
+    FILE *outputFile = fopen("./../images/japan_flag.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+    gdImagePngEx(img, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(img);
+    return 0;
+}
+
+void draw_japan_flag(gdImagePtr img) {
+    int width = gdImageSX(img);
+    int height = gdImageSY(img);
+    int red, white ;
+    int center_x =  0.5 * width;
+    int center_y =  0.5 * height;
+    int sun_radius = 145 ;
+
+    // Colors for the flag
+    red = gdImageColorAllocate(img, 242, 0, 0); // Red color
+    white = gdImageColorAllocate(img, 255, 255, 255); // White stripes
+
+
+    // 繪製白色矩形區域
+    gdImageFilledRectangle(img, 0, 0, width, height, white);
+
+
+    // 繪製太陽內部
+    gdImageFilledEllipse(img, center_x, center_y, sun_radius * 3, sun_radius * 3, red);
+}</pre>
 <p></p>
-<p></p>
-<br />work << <a href='work.html'>Previous</a> <a href='file.html'>Next</a> >> file</div>
+<p></p><br />work << <a href='work.html'>Previous</a> <a href='file.html'>Next</a> >> file</div>
         
     <!-- footer -->
       <div class="container">
