@@ -1,23 +1,37 @@
 <h1>About</h1>
 <p><a href="https://github.com/zhe41223118/cp2023"> https://github.com/zhe41223118/cp2023</a> (倉儲連接) </p>
 <h1>w13</h1>
-<p><span style="background-color: #ffff00;">在近端建立 <span style="color: #0000ff;">OpenSSH</span> 格式的<span style="color: #0000ff;"> public key</span>, <span style="color: #0000ff;">putty</span> 格式的 <span style="color: #0000ff;">private</span> 並且配合 <span style="color: #0000ff;">putty session </span>讓使用者可以將倉儲 <span style="color: #0000ff;">git clone</span> 到近端維護</span></p>
-<p></p>
+<p>如何使用近端編輯網站</p>
+<p><span style="background-color: #ffff00;">在近端建立 <span style="color: #0000ff;">OpenSSH</span> 格式的<span style="color: #0000ff;"> public key</span>, <span style="color: #0000ff;">putty</span> 格式的 <span style="color: #0000ff;">private</span> 並且配合 <span style="color: #0000ff;">putty session </span>讓使用者可以將倉儲 <span style="color: #0000ff;">git clone</span> 到近端維護。</span></p>
+<p>所會用到的<span style="color: #0000ff;">命令字元指令</span>(如果操作過程無任何錯誤)</p>
+<p><strong><span style="background-color: #ffff00;">reedit </span></strong><span style="background-color: #ffffff;">(開啟登陸編輯程式)</span></p>
+<p><strong><span style="background-color: #ffff00;">cd </span></strong><span style="background-color: #ffffff;">(進入資料夾位置)</span></p>
+<p><strong><span style="background-color: #ffff00;">git clone --recurse-submodules </span></strong><span style="background-color: #ffffff;">(克隆複製倉儲資料)</span></p>
+<p><strong><span style="background-color: #ffff00;">cms </span></strong><span style="background-color: #ffffff;">(啟動近端)</span></p>
+<p>近端啟動後網站預設密碼為<strong><span style="color: #ff0000;">admin<span style="color: #000000;">，</span></span></strong><span style="color: #ff0000;"><span style="color: #000000;">只有自己需要使用的話，無須更改密碼，因為近端網站只要自己不啟動它，別人也進不來，更不用說還不知道密碼的情況下。 (註:如要以指令停止近端<strong><span style="color: #ff0000;">ctrl+c</span></strong>)</span></span></p>
 <p><span>檔案位置:<span style="color: #0000ff;">tinyc裡的data</span><span>，需有</span><span style="color: #ff0000;">portablegit PuTTY Python311</span><span>三個檔案 (<a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/EQKYzpSpfetGj0iMQnDcdYABjabAA5Fi3cjiyunroXrQgg?e=2UKfPB">python3114_git_putty.7z</a>)</span></span></p>
 <p><span><span><img alt="" height="530" src="/images/螢幕擷取畫面 (6).png" width="786"/></span></span></p>
 <p><span style="color: #ff0000;"><strong>注意<span style="color: #000000;">:</span></strong></span>需在符合上圖條件下開啟<strong><span style="color: #ff0000;">start_ipv6.bat</span></strong>，因為在虛擬主機(Y)所做的檔案更改不會影響自己本身的USB磁碟機，如果三個檔案在開啟命令字元時不在data裡，而是在開啟後才放入或放在開啟後產生的Y槽裡的話，會在後續在檔案傳輸和指示字元讀取倉儲檔案上出現問題</p>
-<h2>1.</h2>
-<p>在執行步驟上，使用<span><span style="color: #ff0000;">puttygen.exe</span><span>定位主機位置並獲得key(點擊Generate開始定位)</span></span></p>
+<h2>step 1</h2>
+<p>使用<span><span style="color: #ff0000;">puttygen.exe</span><span>定位主機位置並獲得key(點擊Generate開始定位)</span></span></p>
 <p><span><span>如圖:(鼠標需在其檔案頁面範圍內不斷移動直到<span style="color: #0000ff;">綠條</span>跑完)</span></span></p>
 <p><span><span><img alt="" height="553" src="/images/螢幕擷取畫面 (4).png" width="790"/></span></span></p>
 <p>將key(圖上藍色框選的亂碼)複製新增到自己倉儲帳號(<span>設定-SSH keys)</span>，同時也要點圖上的<span style="color: #0000ff;">Save private key</span></p>
 <p>儲存到<strong><span style="color: #ff0000;">tinyc-data-home</span></strong>(名稱學號)</p>
 <p><span style="background-color: #ffff00;">貼至倉儲綁定的亂碼就是自己設的鎖，而鑰匙就是儲存至自己的USB中的<span style="color: #ff0000;"><strong>.ppk</strong></span>檔</span></p>
+<h2>step 2</h2>
+<p>使用<span style="color: #ff0000;">putty.exe<span style="color: #000000;">把要鑰匙與倉儲座連接</span></span></p>
+<p><span style="color: #ff0000;"><span style="color: #000000;"><img alt="" height="223" src="/images/2.png" width="270"/><img alt="" height="177" src="/images/1.png" width="281"/></span></span></p>
+<p>至<span style="color: #0000ff;">SSH</span>裡的<span style="color: #0000ff;">Auth</span>裡的<span style="color: #0000ff;">Credentials，</span>將<span style="color: #ff0000;"><span style="color: #0000ff;">.ppk</span></span>檔數入</p>
+<h2>step 3</h2>
+<p>在命令字元打上<span style="color: #ff0000;">reedit</span>，尋找到剛剛處存的key<span style="color: #ff0000;">整個目錄檔</span>後右鍵匯出至USB中</p>
 <p></p>
-<p>在命令字元打上<span style="color: #ff0000;">reedit</span>，尋找到剛剛處存的key整葛目錄檔後右鍵匯出</p>
-<p>到Y槽輸入git clone --recurse-submodules <a href="mailto:git@41223118:zhe41223118(">git@41223118:zhe41223118</a>/cp2023.git</p>
-<p>(上述藍色前者為自訂標題後者為倉儲帳號)</p>
-<p>將倉儲資料複製到USB，之後cd進cp2023，輸入<span>cms</span><span> </span>就可開啟近端網站進行維護了</p><h1>w12</h1>
+<p><span>字元指令至自己要克隆抓取後放置的位置</span></p>
+<p>輸入git clone --recurse-submodules <strong><span style="color: #000000; background-color: #ffff99;">git@41223118:zhe41223118</span></strong>/cp2023.git</p>
+<p>(上述粗體字前者為.ppk檔案名:後者為倉儲帳號)</p>
+<p>將倉儲資料複製到USB，之後cd進cp2023(克隆下的資料檔名)</p>
+<p>輸入<strong><span style="color: #ff0000;">cms</span></strong><span> </span>就可開啟近端網站進行維護了</p>
+<h1>w12</h1>
 <p><a href="https://nfuedu-my.sharepoint.com/:t:/g/personal/41223118_nfu_edu_tw/ER6bBZF0Yi1LpbIuc6x6_QwBNaowTwRlLFY9kKrz2JMxfw?e=7F05Gt">rrr</a></p>
 <p></p>
 <h1>w11</h1>
@@ -353,7 +367,8 @@ gdImageFilledPolygon(img, points, 10, color);
 <p><span><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/41223118_nfu_edu_tw/EQKYzpSpfetGj0iMQnDcdYABjabAA5Fi3cjiyunroXrQgg?e=yMDip4">python3114_git_putty.7z</a> (將近端 cmsimde 啟動並改版後推向 Github 所需的檔案)</span></p>
 <p><span></span></p>
 <p><span></span></p>
-<p></p><h1>Brython</h1>
+<p></p>
+<h1>Brython</h1>
 <p></p>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
