@@ -142,15 +142,244 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">step 2 << <a href='step 2.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>step 3</h1>
-<p>在命令字元打上<span style="color: #ff0000;">reedit</span>，尋找到剛剛處存的key<span style="color: #ff0000;">整個目錄檔</span>後右鍵匯出至USB中</p>
-<p><img alt="" height="295" src="./../images/9.png" width="260"/><img alt="" height="201" src="./../images/5.png" width="263"/></p>
-<p><span>字元指令至(<span style="color: #ff0000;">cd</span>)自己要克隆抓取後放置的位置</span></p>
-<p>輸入git clone --recurse-submodules <strong><span style="color: #000000; background-color: #ffff99;">git@41223118:zhe41223118</span></strong>/cp2023.git</p>
-<p>(上述粗體字前者為.ppk檔案名:後者為倉儲帳號)</p>
-<p>將倉儲資料複製到USB，之後cd進cp2023(克隆下的資料檔名)</p>
-<p>輸入<strong><span style="color: #ff0000;">cms</span></strong><span> </span>就可開啟近端網站進行維護了</p>
-<br />step 2 << <a href='step 2.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+    <div id="tipue_search_content">w15 << <a href='w15.html'>Previous</a> <a href='ANS 2.html'>Next</a> >> ANS 2<br /><h1>ANS 1</h1>
+<p><strong>第一次嘗試(錯誤答案)</strong></p>
+<p></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+ 
+void draw_roc_flag(gdImagePtr img);
+void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
+ 
+void connectPoints(gdImagePtr img, int x1, int y1, int x2, int y2, int color);
+ 
+int main() {
+// width 3: height 2
+int width = 1200;
+// 國旗長寬比為 3:2
+int height = (int)(width * 2.0 / 3.0);
+ 
+gdImagePtr img = gdImageCreateTrueColor(width, height);
+gdImageAlphaBlending(img, 0);
+ 
+draw_roc_flag(img);
+ 
+FILE *outputFile = fopen("Y:/tmp/c_ex/roc_flag_in_gd.png", "wb");
+if (outputFile == NULL) {
+fprintf(stderr, "Error opening the output file.\n");
+return 1;
+}
+gdImagePngEx(img, outputFile, 9);
+fclose(outputFile);
+gdImageDestroy(img);
+return 0;
+}
+ 
+void draw_roc_flag(gdImagePtr img) {
+int width = gdImageSX(img);
+int height = gdImageSY(img);
+int red, white, blue;
+// 白日位於青天面積正中央, 因此中心點座標為長寬各 1/4 處
+int center_x = (int)(width / 4);
+int center_y = (int)(height / 4);
+// gdImageFilledEllipse 需以長寬方向的 diameter 作圖
+// 由於中央白日圓形的半徑為青天寬度的 1/8
+// 因此中央白日圓形的直徑為青天寬度的 1/4, 也就是國旗寬度的 1/8
+// 而且白日十二道光芒的外圍圓形其半徑也是國旗寬度的1/8
+int sun_radius = (int)(width / 8);
+// 中央白日圓形的直徑等於十二道光芒外圍圓形的半徑
+int white_circle_dia = sun_radius;
+// 中央藍色圓形半徑為中央白日的 1又 2/15
+int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
+// 根據 https://www.moi.gov.tw/cp.aspx?n=10621 訂定國旗三種顏色值
+red = gdImageColorAllocate(img, 255, 0, 0); // 紅色
+white = gdImageColorAllocate(img, 255, 255, 255); // 白色
+blue = gdImageColorAllocate(img, 0, 0, 149); // 藍色
+// 根據畫布大小塗上紅色長方形區域
+gdImageFilledRectangle(img, 0, 0, width, height, red);
+// 青天面積為整面國旗的 1/4, 也是採用長方形塗色
+gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
+// 先設法以填色畫出六個白色堆疊菱形
+draw_white_sun(img, center_x, center_y, sun_radius, white);
+// 利用一個藍色大圓與白色小圓畫出藍色環狀
+gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
+gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
+ 
+// 連接四個座標點
+connectPoints(img, 429, 125, 279, 165, white);
+connectPoints(img, 279, 165, 170, 274, white);
+connectPoints(img, 170, 274, 319, 234, white);
+connectPoints(img, 319, 234, 429, 125, white);
+}
+ 
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
+float deg = M_PI / 180;
+float sr = sun_radius / tan(75 * deg);
+int ax, ay, bx, by, dx, dy, ex, ey;
+ 
+ax = center_x;
+ay = center_y - sun_radius;
+ 
+bx = center_x - sun_radius * tan(15 * deg);
+by = center_y;
+ 
+ex = center_x;
+ey = center_y + sun_radius;
+ 
+dx = center_x + sun_radius * tan(15 * deg);
+dy = center_y;
+ 
+for (int i = 1; i &lt;= 6; i++) {
+int ax1 = ax + sun_radius * sin(30 * deg * i);
+int ay1 = ay + sun_radius - sun_radius * cos(30 * deg * i);
+ 
+int bx1 = bx + sr - sr * cos(30 * deg * i);
+int by1 = by - sr * sin(30 * deg * i);
+ 
+int ex1 = ex - sun_radius * sin(30 * deg * i);
+int ey1 = ey - (sun_radius - sun_radius * cos(30 * deg * i));
+ 
+int dx1 = dx - (sr - sr * cos(30 * deg * i));
+int dy1 = dy + sr * sin(30 * deg * i);
+ 
+// 對菱形區域範圍塗色
+gdImageFilledPolygon(img, (gdPoint[4]){{ax1, ay1}, {bx1, by1}, {ex1, ey1}, {dx1, dy1}}, 4, color);
+ 
+// 在菱形區域外圍畫線，明確界定菱形範圍
+gdImageLine(img, ax1, ay1, bx1, by1, color);
+gdImageLine(img, bx1, by1, ex1, ey1, color);
+gdImageLine(img, ex1, ey1, dx1, dy1, color);
+gdImageLine(img, dx1, dy1, ax1, ay1, color);
+}
+}
+ 
+void connectPoints(gdImagePtr img, int x1, int y1, int x2, int y2, int color) {
+gdImageLine(img, x1, y1, x2, y2, color);
+}</pre>
+<p><strong>第二次製作(正確答案)</strong></p>
+<p><img alt="" height="533" src="./../images/66.png" width="800"/></p>
+<p><strong></strong></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+ 
+void draw_roc_flag(gdImagePtr img);
+void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
+ 
+void connectPoints(gdImagePtr img, int x1, int y1, int x2, int y2, int color);
+ 
+int main() {
+// width 3: height 2
+int width = 1200;
+// 國旗長寬比為 3:2
+int height = (int)(width * 2.0 / 3.0);
+ 
+gdImagePtr img = gdImageCreateTrueColor(width, height);
+gdImageAlphaBlending(img, 0);
+ 
+draw_roc_flag(img);
+ 
+FILE *outputFile = fopen("Y:/tmp/c_ex/roc_flag_in_gd.png", "wb");
+if (outputFile == NULL) {
+fprintf(stderr, "Error opening the output file.\n");
+return 1;
+}
+gdImagePngEx(img, outputFile, 9);
+fclose(outputFile);
+gdImageDestroy(img);
+return 0;
+}
+ 
+void draw_roc_flag(gdImagePtr img) {
+int width = gdImageSX(img);
+int height = gdImageSY(img);
+int red, white, blue;
+// 白日位於青天面積正中央, 因此中心點座標為長寬各 1/4 處
+int center_x = (int)(width / 4);
+int center_y = (int)(height / 4);
+// gdImageFilledEllipse 需以長寬方向的 diameter 作圖
+// 由於中央白日圓形的半徑為青天寬度的 1/8
+// 因此中央白日圓形的直徑為青天寬度的 1/4, 也就是國旗寬度的 1/8
+// 而且白日十二道光芒的外圍圓形其半徑也是國旗寬度的1/8
+int sun_radius = (int)(width / 8);
+// 中央白日圓形的直徑等於十二道光芒外圍圓形的半徑
+int white_circle_dia = sun_radius;
+// 中央藍色圓形半徑為中央白日的 1又 2/15
+int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
+// 根據 https://www.moi.gov.tw/cp.aspx?n=10621 訂定國旗三種顏色值
+red = gdImageColorAllocate(img, 255, 0, 0); // 紅色
+white = gdImageColorAllocate(img, 255, 255, 255); // 白色
+blue = gdImageColorAllocate(img, 0, 0, 149); // 藍色
+// 根據畫布大小塗上紅色長方形區域
+gdImageFilledRectangle(img, 0, 0, width, height, red);
+// 青天面積為整面國旗的 1/4, 也是採用長方形塗色
+gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
+// 先設法以填色畫出六個白色堆疊菱形
+draw_white_sun(img, center_x, center_y, sun_radius, white);
+// 利用一個藍色大圓與白色小圓畫出藍色環狀
+gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
+gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
+ 
+// 連接四個座標點
+connectPoints(img, 429, 125, 279, 165, white);
+connectPoints(img, 279, 165, 170, 274, white);
+connectPoints(img, 170, 274, 319, 234, white);
+connectPoints(img, 319, 234, 429, 125, white);
+}
+ 
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
+float deg = M_PI / 180;
+float sr = sun_radius / tan(75 * deg);
+int ax, ay, bx, by, dx, dy, ex, ey;
+ 
+ax = center_x;
+ay = center_y - sun_radius;
+ 
+bx = center_x - sun_radius * tan(15 * deg);
+by = center_y;
+ 
+ex = center_x;
+ey = center_y + sun_radius;
+ 
+dx = center_x + sun_radius * tan(15 * deg);
+dy = center_y;
+ 
+for (int i = 1; i &lt;= 6; i++) {
+int ax1 = ax + sun_radius * sin(30 * deg * i);
+int ay1 = ay + sun_radius - sun_radius * cos(30 * deg * i);
+ 
+int bx1 = bx + sr - sr * cos(30 * deg * i);
+int by1 = by - sr * sin(30 * deg * i);
+ 
+int ex1 = ex - sun_radius * sin(30 * deg * i);
+int ey1 = ey - (sun_radius - sun_radius * cos(30 * deg * i));
+ 
+int dx1 = dx - (sr - sr * cos(30 * deg * i));
+int dy1 = dy + sr * sin(30 * deg * i);
+ 
+// 對菱形區域範圍塗色
+gdImageFilledPolygon(img, (gdPoint[4]){{ax1, ay1}, {bx1, by1}, {ex1, ey1}, {dx1, dy1}}, 4, color);
+ 
+// 在菱形區域外圍畫線，明確界定菱形範圍
+gdImageLine(img, ax1, ay1, bx1, by1, color);
+gdImageLine(img, bx1, by1, ex1, ey1, color);
+gdImageLine(img, ex1, ey1, dx1, dy1, color);
+gdImageLine(img, dx1, dy1, ax1, ay1, color);
+}
+}
+ 
+void connectPoints(gdImagePtr img, int x1, int y1, int x2, int y2, int color) {
+gdImageLine(img, x1, y1, x2, y2, color);</pre>
+<p></p>
+<p>配合ChatGTP，在原式上新增</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">gdImageLine(img, ax1, ay1, bx1, by1, color);
+gdImageLine(img, bx1, by1, ex1, ey1, color);
+gdImageLine(img, ex1, ey1, dx1, dy1, color);
+gdImageLine(img, dx1, dy1, ax1, ay1, color);
+}
+}</pre>
+<p>繪出</p><br />w15 << <a href='w15.html'>Previous</a> <a href='ANS 2.html'>Next</a> >> ANS 2</div>
         
     <!-- footer -->
       <div class="container">
