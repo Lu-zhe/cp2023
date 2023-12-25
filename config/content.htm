@@ -352,6 +352,7 @@ gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue)
 //gdImageLine(img, x1, y1, x2, y2, color);</pre>
 <p><span style="background-color: #ffff00;">(註:使用繪圖方法為在自己USB存的<span style="color: #ff0000;">tinyc</span>檔裡的<span style="color: #ff0000;"><strong>gd</strong></span>線條畫圖畫的)</span></p>
 <p></p><h2>ANS 2</h2>
+<p>操作影片結果，請點<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/41223118_nfu_edu_tw/EdWb4RjEy1NLmW62FVmLSOMBM13yZfUEgDOgVmcTOskX2g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&amp;e=gNxJab">這裡</a>，在原是基礎不動上新增定義和交線反饋。</p>
 <p><img alt="" height="533" src="/images/roc_flag_07_gd_2.png" width="800"/></p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
@@ -499,6 +500,7 @@ void draw_roc_flag(gdImagePtr img) {
     //printf("Intersection 2: (%.2f, %.2f)\n", intersection2.x, intersection2.y);
     // ... 計算其他兩條直線的座標 ...
 }</pre>
+<p><span style="background-color: #ccffff;">在原程式上加入新的定義，以便能將程式交縣回饋回傳，在寫第二樣作業時，也反覆詢問chatGTB，慢慢解決定義問題，併新增了線條與圓交界時的反饋。</span></p>
 <p></p><h1>w13</h1>
 <p>如何使用近端編輯網站</p>
 <p><span style="background-color: #ffff00;">在近端建立 <span style="color: #0000ff;">OpenSSH</span> 格式的<span style="color: #0000ff;"> public key</span>, <span style="color: #0000ff;">putty</span> 格式的 <span style="color: #0000ff;">private</span> 並且配合 <span style="color: #0000ff;">putty session </span>讓使用者可以將倉儲 <span style="color: #0000ff;">git clone</span> 到近端維護。</span></p>
