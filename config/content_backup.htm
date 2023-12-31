@@ -636,7 +636,23 @@ return 1;
     return 0;
 }
 </pre>
-<p></p>
+<p>如果要在匯出時直接出現在指定位置，加上這串:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">int main() {
+    // width 3: height 2
+    int width = 1200;
+    // 國旗長寬比為 3:2
+    int height = (int)(width*2.0 / 3.0);
+ 
+    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+ 
+    draw_roc_flag(img);
+ 
+    FILE *outputFile = fopen("指定位置/roc_flag_07_gd_2.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }</pre>
 <p></p><h1>work</h1>
 <p>cd-檔案</p>
 <p>cc 檔案名+ -lgd -lm</p>
