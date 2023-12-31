@@ -2,7 +2,7 @@
         <head>
         <title>41223118</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -142,10 +142,36 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='w15.html'>Next</a> >> w15<br /><h1>About</h1>
-<p><a href="https://github.com/zhe41223118/cp2023"> https://github.com/zhe41223118/cp2023</a> (個人倉儲連結) </p>
-<p><a href="https://github.com/FGH41223111/cp2023_ag6">https://github.com/FGH41223111/cp2023_ag6</a> (小組倉儲連結)</p>
-<br /> <a href='w15.html'>Next</a> >> w15</div>
+    <div id="tipue_search_content">replit << <a href='replit.html'>Previous</a> <a href='part 2.html'>Next</a> >> part 2<br /><h1>part 1</h1>
+<p><span style="color: #ff0000;"><em><strong>顛倒數字</strong></em></span></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+// 定義反轉數字的函式
+int reverse(int n) {
+    int d, y = 0;
+    while (n) {
+        d = n % 10;
+        // 檢查溢位情況，以確保反轉後的數字仍在 int 範圍內
+        if ((n &gt; 0 &amp;&amp; y &gt; (0x7fffffff - d) / 10) ||
+            (n &lt; 0 &amp;&amp; y &lt; ((signed)0x80000000 - d) / 10)) {
+            return 0;  // 如果溢位，則返回 0
+        }
+        y = y * 10 + d;
+        n = n / 10;
+    }
+    return y;  // 返回反轉後的數字
+}
+
+int main(void)
+{
+    int i = 678;
+    printf("原式: %d  ", i);
+    printf("\n顛倒: %d  ", reverse(i));
+
+    return 0;
+}</pre>
+<p><img alt="" height="72" src="./../images/0012.png" width="588"/></p>
+<br />replit << <a href='replit.html'>Previous</a> <a href='part 2.html'>Next</a> >> part 2</div>
         
     <!-- footer -->
       <div class="container">
