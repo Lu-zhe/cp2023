@@ -143,7 +143,28 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">INFO << <a href='INFO.html'>Previous</a> <a href='Euler Method.html'>Next</a> >> Euler Method<br /><h1>mass-spring-damper</h1>
-<br />INFO << <a href='INFO.html'>Previous</a> <a href='Euler Method.html'>Next</a> >> Euler Method</div>
+<p><span>參考來源：<a href="https://en.wikipedia.org/wiki/Mass-spring-damper_model">Mass-spring-damper model</a></span></p>
+<p><strong><span><span style="background-color: #ffff00;">質點-彈簧-阻尼器</span> </span></strong><span><span>，<span>是一種簡單但重要的動力學系統，用於描述物體在外力作用下的振動行為。這種系統常常被用來分析機械振動、結構動力學等領域。</span></span></span></p>
+<ol>
+<li><strong>質點（Mass）：</strong><span> </span>代表系統中的質量，通常用<span> </span><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">m</span></span></span></span></span><span> </span>表示。</li>
+<li><strong>彈簧（Spring）：</strong><span> </span>代表系統中的彈性元件，用於恢復質點的位移，通常用<span> </span><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">k</span></span></span></span></span><span> </span>表示。</li>
+<li><strong>阻尼器（Damper）：</strong><span> </span>代表系統中的阻尼元件，用於減緩質點的運動速度，通常用<span> </span><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">c</span></span></span></span></span><span> </span>表示。</li>
+</ol>
+<p>系統的運動方程可以通過牛頓的第二運動定律來推導。假設<span> </span><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span><span> </span>表示質點的位移，則質點的運動方程可以表示為：</p>
+<p><img alt="" height="72" src="https://fgh41223111.github.io/cp2023_ag6/images/369.png" width="285"/></p>
+<p><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi> </mi></mrow></semantics></math></span></span></span></p>
+<p>其中：</p>
+<ul>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">m</span></span></span></span></span><span> </span>是質點的質量，</li>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">c</span></span></span></span></span><span> </span>是阻尼器的阻尼系數，</li>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi><br/></mi></mrow></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut"></span><span class="mord mathnormal">k</span></span></span></span></span><span> </span>是彈簧的彈性系數，<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false"></mo></mrow></semantics></math></span></span></span></li>
+<li><span class="math math-inline"><span class="katex"><span aria-hidden="true" class="katex-html"><span class="base"><span class="mord mathnormal">F</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span><span> </span>是外部力。</li>
+</ul>
+<p>這是一個二階線性常微分方程，描述了質點在外部力作用下的運動。解這個方程可以得到系統的位移<span> </span><span class="math math-inline"><span class="katex"><span aria-hidden="true" class="katex-html"><span class="base"><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span><span> </span>隨時間的變化。</p>
+<p>系統的行為取決於質點的質量、彈簧的彈性和阻尼器的阻尼程度。可能的系統行為包括自由振動、過阻尼、臨界阻尼和欠阻尼等。</p>
+<p>這種系統在工程學、物理學和控制理論等領域中有廣泛的應用，並且是學習動態系統和控制理論的基礎之一。</p>
+<p></p>
+<p><img alt="mass connected to the ground with a spring and damper in parallel" caption="false" height="300" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Mass_spring_damper.svg/220px-Mass_spring_damper.svg.png" width="400"/></p><br />INFO << <a href='INFO.html'>Previous</a> <a href='Euler Method.html'>Next</a> >> Euler Method</div>
         
     <!-- footer -->
       <div class="container">
